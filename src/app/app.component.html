@@ -1,6 +1,4 @@
-<!-- <app-header></app-header>
-<router-outlet></router-outlet> -->
-<mat-toolbar>
+<mat-toolbar *ngIf="sidenav.mode === 'over'">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
@@ -9,7 +7,7 @@
             close
         </mat-icon>
     </button>
-    <!-- Responsive side navigation -->
+    <h4 class="name">Samat Baltin</h4>
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -21,11 +19,11 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" (click)="onHome()">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" (click)="onProfile()">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
@@ -44,7 +42,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
-            Main content here!
+            <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

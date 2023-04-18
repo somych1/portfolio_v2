@@ -37,4 +37,7 @@ export class AppComponent {
   onHome(){
     this.router.navigateByUrl("/")
   }
+  onAbout(){
+    this.router.navigateByUrl("/about")
+  }
 }
